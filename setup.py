@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='setuptools-git-version',
-    version='1.0a1',
+    version='1.0a2',
     url='https://github.com/pyfidelity/setuptools-git-version',
     author='pyfidelity UG',
     author_email='mail@pyfidelity.com',
@@ -17,7 +17,7 @@ setup(
     ],
     py_modules=['version'],
     install_requires=[
-        'setuptools >= 15.0',
+        'setuptools >= 8.0',
     ],
     entry_points="""
         [distutils.setup_keywords]
