@@ -30,10 +30,16 @@ this package allows to extract it from the underlying Git repository:
 Changes
 -------
 
-1.0.1 - 2015-04-14
+1.0.2 - 2015-04-14
 ++++++++++++++++++
 
 - [bugfix] make it work with Python 3(.4)
+
+
+1.0.1 - 2015-04-14
+++++++++++++++++++
+
+- brownbag release
 
 
 1.0 2015-04-10
