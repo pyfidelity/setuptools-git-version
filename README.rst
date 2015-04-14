@@ -42,8 +42,8 @@ Changes
 - brownbag release
 
 
-1.0 2015-04-10
-++++++++++++++
+1.0 - 2015-04-10
+++++++++++++++++
 
 - initial public release
 
