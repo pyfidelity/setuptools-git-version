@@ -7,7 +7,7 @@ command = 'git describe --tags --long --dirty'
 
 def validate_version_format(dist, attr, value):
     try:
-        version = check_output(command.split()).strip()
+        version = check_output(command.split()).decode('utf-8').strip()
     except:
         version = get_distribution(dist.get_name()).version
     else:
