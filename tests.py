@@ -1,5 +1,5 @@
 from pytest import mark
-from version import format_version
+from setuptools_git_version import format_version
 
 
 @mark.parametrize('git_describe, version', [

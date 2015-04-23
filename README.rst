@@ -30,6 +30,12 @@ this package allows to extract it from the underlying Git repository:
 Changes
 -------
 
+1.0.3 - Unreleased
+++++++++++++++++++
+
+- [bugfix] rename module to avoid import conflicts
+
+
 1.0.2 - 2015-04-14
 ++++++++++++++++++
 

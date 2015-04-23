@@ -15,12 +15,12 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python',
     ],
-    py_modules=['version'],
+    py_modules=['setuptools_git_version'],
     install_requires=[
         'setuptools >= 8.0',
     ],
     entry_points="""
         [distutils.setup_keywords]
-        version_format = version:validate_version_format
+        version_format = setuptools_git_version:validate_version_format
     """,
 )
