@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='setuptools-git-version',
-    version='1.0.3',
+    version='1.0.4',
     url='https://github.com/pyfidelity/setuptools-git-version',
     author='pyfidelity UG',
     author_email='mail@pyfidelity.com',
@@ -22,5 +22,6 @@ setup(
     entry_points="""
         [distutils.setup_keywords]
         version_format = setuptools_git_version:validate_version_format
+        version_files = setuptools_git_version:write_version_files
     """,
 )
