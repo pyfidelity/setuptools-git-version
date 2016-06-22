@@ -30,6 +30,10 @@ this package allows to extract it from the underlying Git repository:
 Changes
 -------
 
+1.0.4 - 2016-06-22
+
+- [feature] allow to build a package using a git-based version without modifying it upfront
+
 1.0.3 - 2015-04-23
 ++++++++++++++++++
 
