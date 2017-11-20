@@ -26,10 +26,14 @@ def format_version(version, fmt=fmt):
     return fmt.format(tag=tag, commitcount=count, gitsha=sha.lstrip('g'))
 
 
+def get_git_version():
+    git_version = check_output(command.split()).decode('utf-8').strip()
+    return format_version(version=git_version)
+
+
 if __name__ == "__main__":
     # determine version from git
-    git_version = check_output(command.split()).decode('utf-8').strip()
-    git_version = format_version(version=git_version)
+    git_version = get_git_version()
 
     # monkey-patch `setuptools.setup` to inject the git version
     import setuptools

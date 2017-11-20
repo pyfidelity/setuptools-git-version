@@ -22,5 +22,7 @@ setup(
     entry_points="""
         [distutils.setup_keywords]
         version_format = setuptools_git_version:validate_version_format
+        [console_scripts]
+        setuptools-git-version = setuptools_git_version:get_git_version
     """,
 )
