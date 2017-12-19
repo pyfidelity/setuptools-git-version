@@ -54,6 +54,7 @@ Changes
 -------
 
 1.0.4 - 2016-06-22
+++++++++++++++++++
 
 - [feature] allow to build a package using a git-based version without modifying it upfront
 
