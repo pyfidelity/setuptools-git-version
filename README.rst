@@ -32,6 +32,7 @@ as ``setuptools-git-version`` will uses tags to determine your current git versi
 Fields
 ------
 ``setuptools-git-version`` provides three fields as options for the ``version_format`` string:
+
 * ``tag``: The latest tag (probably a release version like ``v1.0.3``) in your repository
 * ``commitcount``: The number of additional commits on top of this tag (e.g. ``13``)
 * ``gitsha``: An abbreviated commit hash of the latest commit in your repository
@@ -42,6 +43,7 @@ Implementation Details
 ``setuptools-git-version`` uses the following git command to obtain commit information:
 
 .. code-block:: bash
+
     git describe --tags --long --dirty
 
 To ensure that ``setuptools-git-version`` is compatible with your project, please ensure this command runs correctly in
