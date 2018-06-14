@@ -9,7 +9,7 @@ def README():
 
 setup(
     name='very-good-setuptools-git-version',
-    version='1.0.0',
+    version='1.0.1',
     url='https://github.com/Kautenja/very-good-setuptools-git-version',
     author='Chritian Kauten',
     author_email='kautencreations@gmail.com',
