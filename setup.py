@@ -1,6 +1,12 @@
 from setuptools import setup
 
 
+def README():
+    """Return the contents of the README file for this project."""
+    with open('README.md') as README_file:
+        return README_file.read()
+
+
 setup(
     name='very-good-setuptools-git-version',
     version='1.1.0',
@@ -8,6 +14,9 @@ setup(
     author='Chritian Kauten',
     author_email='kautencreations@gmail.com',
     description='Automatically set package version from Git.',
+    long_description=README(),
+    long_description_content_type='text/markdown',
+    keywords='setuptools git version-control',
     license='MIT',
     classifiers=[
         'Framework :: Setuptools Plugin',
