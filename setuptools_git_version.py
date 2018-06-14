@@ -46,7 +46,6 @@ def validate_version_format(dist, _, template):
 if __name__ == "__main__":
     # determine version from git
     version = get_version()
-    print(version)
 
     # monkey-patch `setuptools.setup` to inject the git version
     import setuptools
