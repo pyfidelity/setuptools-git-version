@@ -1,4 +1,11 @@
+"""A setup script for the package to distribute it to PyPi."""
+import subprocess
 from setuptools import setup
+
+
+def get_tag():
+    """Return the last tag for the git repository."""
+    return subprocess.getoutput('git tag | tail -n1')
 
 
 def README():
@@ -9,7 +16,7 @@ def README():
 
 setup(
     name='very-good-setuptools-git-version',
-    version='1.0.5',
+    version=get_tag(),
     url='https://github.com/Kautenja/very-good-setuptools-git-version',
     author='Chritian Kauten',
     author_email='kautencreations@gmail.com',
