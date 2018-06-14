@@ -37,7 +37,7 @@ this package allows to extract it from the underlying Git repository:
 setup(
     name='foobar',
     version_format='{tag}.dev{commits}+{sha}',
-    setup_requires=['setuptools-git-version'],
+    setup_requires=['very-good-setuptools-git-version'],
     ...
 )
 ```
