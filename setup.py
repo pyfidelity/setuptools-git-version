@@ -5,7 +5,7 @@ from setuptools import setup
 
 def get_tag():
     """Return the last tag for the git repository."""
-    return subprocess.getoutput('git tag | tail -n1')
+    return subprocess.getoutput('git tag --sort=version:refname | tail -n1')
 
 
 def README():
