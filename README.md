@@ -21,7 +21,7 @@ Automatically set package version from Git. This is a re-release of
 
 ## Introduction
 
-Instead of hardcoding the package version in ``setup.py`` like:
+Instead of hard-coding the package version in ``setup.py`` like:
 
 ```python
 setup(
