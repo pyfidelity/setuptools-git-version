@@ -28,10 +28,12 @@ setup(
     install_requires=[
         'setuptools >= 8.0',
     ],
-    entry_points="""
-        [distutils.setup_keywords]
-        version_format = very_good_setuptools_git_version:validate_version_format
-        [console_scripts]
-        very-good-setuptools-git-version = very_good_setuptools_git_version:get_version
-    """,
+    entry_points={
+        'distutils.setup_keywords': [
+            'version_format = very_good_setuptools_git_version:validate_version_format'
+        ],
+        'console_scripts': [
+            'very-good-setuptools-git-version = very_good_setuptools_git_version:get_version'
+        ]
+    }
 )
