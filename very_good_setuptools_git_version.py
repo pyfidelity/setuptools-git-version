@@ -39,22 +39,15 @@ def get_version(template='{tag}.{commits}+{sha}'):
 
 
 def validate_version_format(dist, _, template):
-    """Validate the `version_format` template in client setup.py."""
+    """Parse the `version_format` keyword in a client setup.py script."""
     dist.metadata.version = get_version(template)
 
 
-# if __name__ == "__main__":
-#     # determine version from git
-#     version = get_version()
-
-#     # monkey-patch `setuptools.setup` to inject the git version
-#     import setuptools
-#     original_setup = setuptools.setup
-
-#     def setup(version=None, *args, **kw):
-#         return original_setup(version=version, *args, **kw)
-
-#     setuptools.setup = setup
-
-#     # import the package's setup module
-#     import setup
+# explicitly define the outward facing API of this module
+__all__ = [
+    get_tag.__name__,
+    get_commit_count.__name__,
+    get_gitsha.__name__,
+    get_version.__name__,
+    validate_version_format.__name__,
+]
