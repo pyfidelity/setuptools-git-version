@@ -5,8 +5,7 @@ clean:
 
 # build the deployment package
 deployment: clean
-	python setup.py bdist_wheel
-	python3 setup.py bdist_wheel
+	python3 setup.py sdist bdist_wheel --universal
 
 # ship the deployment package to PyPi
 ship: deployment
