@@ -1,48 +1,61 @@
-from pkg_resources import get_distribution
-from subprocess import check_output
+"""Methods to extract version information from a git repository."""
+import subprocess
 
 
-command = 'git describe --tags --long --dirty'
-fmt = '{tag}.{commitcount}+{gitsha}'
+def get_tag():
+    """Return the last tag for the git repository."""
+    return subprocess.getoutput('git tag | tail -n1')
 
 
-def validate_version_format(dist, attr, value):
-    try:
-        version = check_output(command.split()).decode('utf-8').strip()
-    except:
-        version = get_distribution(dist.get_name()).version
-    else:
-        version = format_version(version=version, fmt=value)
-    dist.metadata.version = version
+def get_commit_count():
+    """Return the number of commits since the last tag."""
+    return subprocess.getoutput('git rev-list --all --count')
 
 
-def format_version(version, fmt=fmt):
-    parts = version.split('-')
-    assert len(parts) in (3, 4)
-    dirty = len(parts) == 4
-    tag, count, sha = parts[:3]
-    if count == '0' and not dirty:
-        return tag
-    return fmt.format(tag=tag, commitcount=count, gitsha=sha.lstrip('g'))
+def get_gitsha():
+    """Return the sha key of HEAD."""
+    return subprocess.getoutput('git rev-parse HEAD')
 
 
-def get_git_version():
-    git_version = check_output(command.split()).decode('utf-8').strip()
-    return format_version(version=git_version)
+def get_version(template='{tag}.{commits}+{sha}'):
+    """
+    Return the full git version using the given template.
+
+    Args:
+        template: the string format template to use. It can use these keys:
+            {tag}: the tag from the git repository
+            {commits}: the number of commits since the last tag
+            {sha}: the sha key of HEAD
+
+    Returns:
+        the formatted version for the git repository
+
+    """
+    tag = get_tag()
+    commits = get_commit_count()
+    sha = get_gitsha()
+
+    return template.format(tag=tag, commits=commits, sha=sha)
+
+
+def validate_version_format(dist, _, template):
+    """Validate the `version_format` template in client setup.py."""
+    dist.metadata.version = get_version(template)
 
 
 if __name__ == "__main__":
     # determine version from git
-    git_version = get_git_version()
+    version = get_version()
+    print(version)
 
     # monkey-patch `setuptools.setup` to inject the git version
     import setuptools
     original_setup = setuptools.setup
 
     def setup(version=None, *args, **kw):
-        return original_setup(version=git_version, *args, **kw)
+        return original_setup(version=version, *args, **kw)
 
     setuptools.setup = setup
 
-    # import the packages's setup module
+    # import the package's setup module
     import setup
