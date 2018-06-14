@@ -15,7 +15,7 @@
 [python-home]: https://python.org
 
 Automatically set package version from Git. This is a re-release of
-[][setuptools-git-version] with fixes.
+[setuptools-git-version][] with fixes.
 
 [setuptools-git-version]: https://github.com/pyfidelity/setuptools-git-version
 
