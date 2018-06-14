@@ -43,18 +43,18 @@ def validate_version_format(dist, _, template):
     dist.metadata.version = get_version(template)
 
 
-if __name__ == "__main__":
-    # determine version from git
-    version = get_version()
+# if __name__ == "__main__":
+#     # determine version from git
+#     version = get_version()
 
-    # monkey-patch `setuptools.setup` to inject the git version
-    import setuptools
-    original_setup = setuptools.setup
+#     # monkey-patch `setuptools.setup` to inject the git version
+#     import setuptools
+#     original_setup = setuptools.setup
 
-    def setup(version=None, *args, **kw):
-        return original_setup(version=version, *args, **kw)
+#     def setup(version=None, *args, **kw):
+#         return original_setup(version=version, *args, **kw)
 
-    setuptools.setup = setup
+#     setuptools.setup = setup
 
-    # import the package's setup module
-    import setup
+#     # import the package's setup module
+#     import setup
