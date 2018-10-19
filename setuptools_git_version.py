@@ -17,10 +17,14 @@ def validate_version_format(dist, attr, value):
 
 
 def format_version(version, fmt=fmt):
+    dirty = False
     parts = version.split('-')
-    assert len(parts) in (3, 4)
-    dirty = len(parts) == 4
-    tag, count, sha = parts[:3]
+    sha = parts.pop()
+    if sha == 'dirty':
+        dirty = True
+        sha = parts.pop()
+    count = parts.pop()
+    tag = '-'.join(parts)
     if count == '0' and not dirty:
         return tag
     return fmt.format(tag=tag, commitcount=count, gitsha=sha.lstrip('g'))
