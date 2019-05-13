@@ -1,2 +1,12 @@
 /.cache/
 /.tox/
+*.egg-info/
+Pipfile
+*.pyc
+*.pya
+build/
+*__pycache__*
+*.eggs/
+*.swa
+*.swp
+*~
