@@ -3,6 +3,14 @@ setuptools-git-version
 
 *Automatically set package version from Git.*
 
+Install
+-------
+
+Install ``setuptools-git-version`` from pypi:
+
+.. code-block:: shell
+    pip install setuptools-git-version
+
 
 Introduction
 ------------
@@ -28,6 +36,13 @@ this package allows to extract it from the underlying Git repository:
 
 Please ensure that your git repository has at least one `annotated tag <https://git-scm.com/book/en/v2/Git-Basics-Tagging>`_,
 as ``setuptools-git-version`` will uses tags to determine your current git version. 
+
+Also you can use ``setuptools-git-version`` as a CLI command to retrieve the version like this:
+
+.. code-block:: shell
+    $ # go to your project directory
+    $ setuptools-git-version
+    1.0.4.5+b1afbd9
 
 Fields
 ------
