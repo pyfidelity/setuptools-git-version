@@ -22,7 +22,7 @@ this package allows to extract it from the underlying Git repository:
 
     setup(
         name='foobar',
-        version_format='{tag}.dev{commitcount}+{gitsha}',
+        version_format='{tag}.dev{commitcount}+{gitsha}-{dirty}',
         setup_requires=['setuptools-git-version'],
         ...)
 
@@ -36,6 +36,7 @@ Fields
 * ``tag``: The latest tag (probably a release version like ``v1.0.3``) in your repository
 * ``commitcount``: The number of additional commits on top of this tag (e.g. ``13``)
 * ``gitsha``: An abbreviated commit hash of the latest commit in your repository
+* ``dirty``: Result of the --dirty git option
 
 Implementation Details
 ----------------------
@@ -52,6 +53,11 @@ your repository
 
 Changes
 -------
+
+1.0.5 - 2019-07-17
+++++++++++++++++++
+
+- [feature] added dirty to version_format
 
 1.0.4 - 2016-06-22
 ++++++++++++++++++
