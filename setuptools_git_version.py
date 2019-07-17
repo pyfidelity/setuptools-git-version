@@ -3,7 +3,7 @@ from subprocess import check_output
 
 
 command = 'git describe --tags --long --dirty'
-fmt = '{tag}.{commitcount}+{gitsha}'
+fmt = '{tag}.{commitcount}+{gitsha}-{dirty}'
 
 
 def validate_version_format(dist, attr, value):
@@ -23,7 +23,7 @@ def format_version(version, fmt=fmt):
     tag, count, sha = parts[:3]
     if count == '0' and not dirty:
         return tag
-    return fmt.format(tag=tag, commitcount=count, gitsha=sha.lstrip('g'))
+    return fmt.format(tag=tag, commitcount=count, gitsha=sha.lstrip('g'), dirty='Dirty' if dirty else '')
 
 
 def get_git_version():
